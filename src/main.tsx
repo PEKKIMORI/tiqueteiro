@@ -1,11 +1,25 @@
 import React from 'react'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import ReactDOM from 'react-dom/client'
-import Door from './door.tsx'
-import Room from './room.tsx'
+import Login from './door.tsx'
+import Home from './room.tsx'
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />
+  },
+  {
+    path: "room",
+    element: <Home />
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Door />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
