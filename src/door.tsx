@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import React from 'react';
-import './login.css'
+import './door.css'
 import { generatePDF } from './Pdf'
 
-function Login() {
+function Door () {
   const handleClick = () => {
     const contElement = document.querySelector('.cont');
     if (contElement instanceof HTMLElement) {
@@ -11,7 +11,7 @@ function Login() {
     }
   };
 	return(
-		<body>
+		<div>
       <h1 className="welcome">Oi! Seja bem-vindo :D</h1>
       <p className="info">Esse site foi desenolvido para a compra controlada de ingressos para a Festa Junina na ETEC Presidente Vargas, que ocorrerá no dia 24/06.<br/><br/>Primeiramente: os alunos não pagam a entrada.<br/>Cada aluno tem o direito de convidar até duas pessoas, que comprarão o ingresso em seu nome.<br/>A compra do ingresso só poderá ser feita via esse site.<br/>Para fazer a compra, antes o aluno deve criar uma conta, e com ela, realizar o pagamento via PIX, cartão de crédito/débito, ou boleto.</p>
       <p className="tip">OBRIGADO!</p>
@@ -77,8 +77,8 @@ function Login() {
       <a href="https://github.com/c0ffex" target="_blank" className="icon-link icon-link--twitter">
         <img src="https://icons.iconarchive.com/icons/custom-icon-design/mono-business-2/256/coffee-icon.png"/>
       </a>
-    </body>
+    </div>
 	)
 }
 
-export default Login
+export default Door
