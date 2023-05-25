@@ -109,8 +109,8 @@ function Door () {
               <p>Crie uma conta agora para comprar seus ingressos para a Festa Junina da ETEC Presidente Vargas!</p>
             </div>
             <div className="img__text m--in">
-              <h2>Já possui conta?</h2>
-              <p>Se você já tem uma conta, é só entrar e fazer a compra dos ingressos! ^ -^)</p>
+            <h2>É rápido!</h2>
+            <p>Por favor, forneça seus dados! Após fazer o registro é só entrar e fazer a compra dos ingressos! <br/> ^ -^)</p>
             </div>
             <div className="img__btn" onClick={handleClick}>
               <span className="m--up">CRIAR</span>
@@ -118,9 +118,8 @@ function Door () {
             </div>
           </div>
           <div className="form sign-up">
-            <h2>Por favor, forneça os seguintes dados:</h2>
             <form onSubmit={handleRegister}>
-              <label>
+              <label className="labela">
                 <span>Nome Completo</span>
                 <input type="text" name="name" required minLength={6} maxLength={60} />
               </label>
@@ -135,6 +134,10 @@ function Door () {
               <label>
                 <span>Senha</span>
                 <input type="password" name="password" required minLength={5} />
+              </label>
+              <label>
+                <span>Confirmar Senha</span>
+                <input type="password" />
               </label>
               <button type="submit" className="submit">
                 CRIAR
