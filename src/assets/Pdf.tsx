@@ -6,7 +6,7 @@ export function generatePDF() {
   const doc = new jsPDF();
 
   // Define the QR code text
-  var qrCodeText = "48df0f08-4c14-4ed8-a2a8-9d517d81c689";
+  const qrCodeText = "48df0f08-4c14-4ed8-a2a8-9d517d81c689";
 
   // Generate the QR code
   const canvas = document.createElement("canvas");
@@ -17,12 +17,12 @@ export function generatePDF() {
   doc.addImage(dataURL, "JPEG", 41, 10, 128, 128);
 
   // Define variables for info
-  var sellerName = "Belo Jorgin";
-  var email = "belo.jorgin21@etec.sp.gov.br";
-  var rm = "21XXXX";
-  var invitedName = "Maria Jorgin";
-  var price = "R$10,00 + taxas";
-  var purchaseDate = "07/06/2023";
+  const sellerName = "Belo Jorgin";
+  const email = "belo.jorgin21@etec.sp.gov.br";
+  const rm = "21XXXX";
+  const invitedName = "Maria Jorgin";
+  const price = "R$10,00 + taxas";
+  const purchaseDate = "07/06/2023";
 
   // Add info to the PDF
   doc.setFontSize(12);
