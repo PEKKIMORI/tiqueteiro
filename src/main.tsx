@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 import Login from './door.tsx'
-import Home from './room.tsx'
+import Room from './room.tsx';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "room",
-    element: <Home />
+    element: <Room />
   }
 ]);
 
