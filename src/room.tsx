@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom'
 import './room.css'
 import { useEffect } from 'react';
@@ -9,8 +8,6 @@ export default function Room (){
         sessionStorage.getItem('onebitflix-token') === null || undefined ? 
         navigate('/') : ''
     })
-    
-
     return(
         <>
         <h1 className="fonfon">Compre já seus ingressos!</h1>
