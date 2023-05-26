@@ -44,7 +44,7 @@ function Door () {
     const { status } = await authService.login(params);
 
     if (status === 200) {
-      navigate("/home");
+      navigate("/room");
     } else {
       // setToastColor("bg-danger");
       // setToastIsOpen(true);
