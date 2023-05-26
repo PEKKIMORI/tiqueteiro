@@ -12,12 +12,17 @@ function Door () {
 
   const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('wawa');
     const formData = new FormData(event.currentTarget);
     const name = formData.get('name')!.toString();
     const email = formData.get('email')!.toString();
     const password = formData.get('password')!.toString();
     const rm = formData.get('rm')!.toString();
+    const confirmPassword = formData.get('confirmPassword')!.toString()
+
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+      return;
+    }
 
     const params = { name, email, password, rm };
 
@@ -137,7 +142,7 @@ function Door () {
               </label>
               <label>
                 <span>Confirmar Senha</span>
-                <input type="password" />
+                <input type="password" name="confirmPassword"/>
               </label>
               <button type="submit" className="submit">
                 CRIAR
