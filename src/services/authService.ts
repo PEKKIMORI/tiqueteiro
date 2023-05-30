@@ -50,6 +50,15 @@ const authService = {
 
   return res
   },
+  payment: async (ticket: string) => {
+    const res = await api.post(`/payment/${ticket}`).catch((error) => {
+      if (error.response.status === 500 || error.response.status === 501) {
+        return error.response;
+      }
+    })
+
+  return res
+}
 };
 
 export default authService;

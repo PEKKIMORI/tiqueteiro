@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <Room />
   },
   {
-    path: "/pagamento",
+    path: "/pagamento/:ticket",
     element: <Poggerspagamenteiro />
   },
   {
