@@ -4,8 +4,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
-import Login from './door.tsx'
-import Room from './room.tsx';
+import Login from './pages/door.tsx'
+import Room from './pages/room.tsx';
+import Poggerspagamenteiro from './pages/pagamento.tsx';
+import Adm from './pages/adm.tsx';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +15,16 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: "room",
+    path: "/room",
     element: <Room />
+  },
+  {
+    path: "/pagamento",
+    element: <Poggerspagamenteiro />
+  },
+  {
+    path: "/adm",
+    element: <Adm />
   }
 ]);
 

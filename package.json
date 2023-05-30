@@ -10,15 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mercadopago/sdk-react": "^0.0.10",
     "@types/qrcode": "^1.5.0",
     "axios": "^1.4.0",
+    "html5-qrcode": "^2.3.8",
     "jspdf": "^2.5.1",
+    "mercadopago": "^1.5.16",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
+    "@types/mercadopago": "^1.5.8",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",

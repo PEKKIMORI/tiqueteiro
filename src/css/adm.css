@@ -1,0 +1,16 @@
+.welcome {
+    display:flexbox;
+    font-size: 35px;
+    margin: 100px auto 50px;
+    text-align: center;
+  }
+
+p {
+    text-align: center;
+}
+
+.scanner {
+    margin: 0 auto;
+    width: 85%;
+    background-color: rgb(175, 175, 175);
+}
