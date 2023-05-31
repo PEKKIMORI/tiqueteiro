@@ -8,7 +8,7 @@ function Adm() {
         <div className="welcome">
             <h1>Scanner</h1>
         </div>
-        <div className="scanner">
+        <div className={"scanner"}>
             <Scanner/>
         </div>
         </>

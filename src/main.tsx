@@ -6,7 +6,7 @@ import {
 import ReactDOM from 'react-dom/client'
 import Login from './pages/door.tsx'
 import Room from './pages/room.tsx';
-import Poggerspagamenteiro from './pages/pagamento.tsx';
+import Pagamento from './pages/pagamento.tsx';
 import Adm from './pages/adm.tsx';
 
 const router = createBrowserRouter([
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/pagamento/:ticket",
-    element: <Poggerspagamenteiro />
+    element: <Pagamento />
   },
   {
     path: "/adm",
