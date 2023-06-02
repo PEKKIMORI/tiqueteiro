@@ -12,7 +12,6 @@ export default function Room (){
         <>
         <h1 className="fonfon">Compre já seus ingressos!</h1>
         <h3 style={{textAlign: 'center'}}>:D</h3>
-
         <div className= "box">
                 <div className="flip-card">
                     <div className="flip-card-inner">

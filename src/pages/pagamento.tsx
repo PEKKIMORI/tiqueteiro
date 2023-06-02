@@ -1,9 +1,10 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { initMercadoPago, Payment} from '@mercadopago/sdk-react';
 import { IBrickError } from '@mercadopago/sdk-react/bricks/util/types/common';
 
-import { redirect, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import authService from '../services/authService';
+
 
 
 initMercadoPago('TEST-480b4324-8e4c-4565-a03b-07a158c89fdf');
@@ -15,6 +16,7 @@ const Pagamento = () => {
   useEffect(() => {
     const fetchPreference = async () => {
       try {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const response = await authService.payment(ticket!)
         const { preferenceId } = await response.data.id;
         const  init_point  = await response.data.sandbox_init_point
@@ -46,6 +48,7 @@ const Pagamento = () => {
   const onSubmit = async () => {
   
     try {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const point = sessionStorage.getItem('init-point')!
       window.location.href = point
     } catch (error) {
