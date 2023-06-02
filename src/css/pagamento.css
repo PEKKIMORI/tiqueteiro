@@ -1,0 +1,72 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.pog {
+    font-family: "Inter", sans-serif;
+    background-color: #FFF;
+}
+
+.text-box {
+	font-family: "Inter", sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pog1 {
+	margin-top: 25rem;
+	font-family: "Inter", sans-serif;
+    font-size: 8vw;
+    font-weight: 900;
+    background-color: #ceb10c;
+    color: #ededed;
+    display: block;
+    padding: .5em;
+}
+
+.pog1:nth-child(2) {
+	font-family: "Inter", sans-serif;
+    position: absolute;
+    background-color: #ededed;
+    color: #ceb10c;
+    clip-path: inset(-1% -1% 50% -1%);
+}
+
+.pog2 {
+    font-size: 2vw;
+    font-weight: 900;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.pogspan {
+    display: block;
+    transform: rotate(90deg);
+    margin-top: .25em;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wadawel {
+    width: 60%;
+    height: 50%;
+    text-align: center;
+    margin-top: 2rem;
+	margin-bottom: 3rem;
+    color: rgb(68, 68, 68);
+}
