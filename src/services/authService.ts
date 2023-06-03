@@ -66,7 +66,7 @@ const authService = {
     }).catch((error) => {
         return error.response;
     })
-
+    console.log(res)
     return res;
   }
 };
