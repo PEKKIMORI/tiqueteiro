@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://ticketeiro-omega.vercel.app';
+const baseURL = 'https://tickets-omega.vercel.app';
 
 const api = axios.create({
   baseURL,

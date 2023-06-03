@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCopyToClipboard from '../Copy.tsx';
 import authService from '../services/authService';
+import '../css/room.css'
 
 export default function Room() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function Room() {
     apiTransactionId?: string | null
     userId: number
   }
-  const [value, copy] = useCopyToClipboard()
+  const [, copy] = useCopyToClipboard()
   const [tickets, setTickets] = useState<Ticket[]>([]);
 
     const fetchTickets = async () => {

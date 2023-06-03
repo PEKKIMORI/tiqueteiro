@@ -67,6 +67,7 @@
     color: rgb(99, 99, 99);
     transform: rotateY(180deg);
   }
+  
   @keyframes gradient {
     0% {
       background: radial-gradient(circle at center, rgba( 255, 125 , 125, 0 ) 0%, #fff 0%, #fff 100%);
