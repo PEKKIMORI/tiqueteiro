@@ -16,7 +16,7 @@ export default function Room() {
     apiTransactionId?: string | null;
     userId: number;
   }
-  const [value, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
   const [tickets, setTickets] = useState<Ticket[]>([]);
 
   useEffect(() => {
