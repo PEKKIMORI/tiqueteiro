@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import useCopyToClipboard from '../Copy.tsx';
 import authService from '../services/authService';
 
+import '../css/room.css'
+
 export default function Room() {
   const navigate = useNavigate();
   interface Ticket {
