@@ -11,19 +11,18 @@ interface LoginParams {
   email: string;
   password: string;
 }
-// export type TicketType = {
-//   id: number;
-//   sellerName: string
-//   buyerName: string | null
-//   code: string
-//   used: boolean
-//   price: number
-//   purchaseDate?: Date | null
-//   apiTransactionId?: string | null
-//   userId: number
-//   createdAt: Date
-//   updatedAt: Date
-// };
+
+export type TicketType = {
+  id: number;
+  sellerName: string
+  buyerName: string | null
+  code: string
+  used: boolean
+  price: number
+  purchaseDate?: Date | null
+  apiTransactionId?: string | null
+  userId: number
+};
 
 const authService = {
   register: async (params: RegisterParams) => {
@@ -56,9 +55,20 @@ const authService = {
         return error.response;
       }
     })
-
+    
   return res
-}
+  },
+  getTickets:async (token: string) => {
+    const res = await api.get("/home", {
+      headers: {
+          Authorization: `Bearer ${ token }`
+      }
+    }).catch((error) => {
+        return error.response;
+    })
+
+    return res;
+  }
 };
 
 export default authService;

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { initMercadoPago, Payment} from '@mercadopago/sdk-react';
 import { IBrickError } from '@mercadopago/sdk-react/bricks/util/types/common';
 
-import {  useParams } from 'react-router-dom';
+import {  redirect, useParams } from 'react-router-dom';
 import authService from '../services/authService';
 
 import '../css/pagamento.css'
@@ -24,7 +24,7 @@ const Pagamento = () => {
         console.log(init_point)
         sessionStorage.setItem("init-point", init_point);
         console.log(response)
-
+        redirect(init_point)
         setInitialization(prevState => ({ ...prevState, preferenceId: preferenceId }));
       } catch (error) {
         console.error('Erro ao buscar a preferência de pagamento', error);
