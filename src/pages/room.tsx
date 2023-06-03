@@ -30,7 +30,7 @@ export default function Room() {
       const response = await authService.getTickets(token);
 
       if (response.status === 200) {
-        setTickets(response.data);
+        setTickets(response.data.tickets);
       }
     };
 
