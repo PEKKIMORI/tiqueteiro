@@ -1,33 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCopyToClipboard from '../Copy.tsx';
 import authService from '../services/authService';
-import '../css/room.css'
 
 export default function Room() {
   const navigate = useNavigate();
   interface Ticket {
     id: number;
-    sellerName: string
-    buyerName: string | null
-    code: string
-    used: boolean
-    price: number
-    purchaseDate?: Date | null
-    apiTransactionId?: string | null
-    userId: number
+    sellerName: string;
+    buyerName: string | null;
+    code: string;
+    used: boolean;
+    price: number;
+    purchaseDate?: Date | null;
+    apiTransactionId?: string | null;
+    userId: number;
   }
-  const [, copy] = useCopyToClipboard()
+  const [value, copy] = useCopyToClipboard();
   const [tickets, setTickets] = useState<Ticket[]>([]);
 
+  useEffect(() => {
     const fetchTickets = async () => {
-    const token = sessionStorage.getItem('onebitflix-token');
-    if (!token) {
-      navigate('/');
-      return;
-    }
+      const token = sessionStorage.getItem('onebitflix-token');
+      if (!token) {
+        navigate('/');
+        return;
+      }
 
-      const response = await authService.getTickets(token)
+      const response = await authService.getTickets(token);
 
       if (response.status === 200) {
         setTickets(response.data);
@@ -35,6 +35,7 @@ export default function Room() {
     };
 
     fetchTickets();
+  }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
 
   return (
     <>
@@ -43,20 +44,24 @@ export default function Room() {
       <p style={{ margin: '3rem', textAlign: 'center' }}>Envie este link para o seu convidado, nele será realizado o pagamento do ingresso.</p>
 
       <div className="box">
-        {tickets.map((ticket) => (
-          <div className="flip-card" key={ticket.id}>
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <p className="title">{ticket.price}</p>
-                <img src="https://cdn.discordapp.com/attachments/885280158704074884/1111762811354366003/Movie-Ticket-PNG.png" alt="Ticket" />
-              </div>
-              <div className="flip-card-back">
-                <h1>Copiar link:</h1>
-                <button className="grongos" onClick={() => copy(`'https://ticketeiro-omega.vercel.app/${ticket.code}`)}>(´♡ヮ♡`)</button>
+        {tickets.length > 0 ? (
+          tickets.map((ticket) => (
+            <div className="flip-card" key={ticket.id}>
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">{ticket.price}</p>
+                  <img src="https://cdn.discordapp.com/attachments/885280158704074884/1111762811354366003/Movie-Ticket-PNG.png" alt="Ticket" />
+                </div>
+                <div className="flip-card-back">
+                  <h1>Copiar link:</h1>
+                  <button className="grongos" onClick={() => copy(`https://tickets-omega.vercel.app/${ticket.code}`)}>(´♡ヮ♡`)</button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Nenhum ticket encontrado.</p>
+        )}
       </div>
     </>
   );
