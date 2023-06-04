@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { initMercadoPago, Payment} from '@mercadopago/sdk-react';
 import { IBrickError } from '@mercadopago/sdk-react/bricks/util/types/common';
 
-import {  redirect, useParams } from 'react-router-dom';
+import {  redirect } from 'react-router-dom';
 import authService from '../services/authService';
 
 import '../css/pagamento.css'
@@ -12,13 +12,13 @@ initMercadoPago('TEST-480b4324-8e4c-4565-a03b-07a158c89fdf');
 
 const Pagamento = () => {
   const [initialization, setInitialization] = useState({ amount: 1000, preferenceId: '' });
-  const { ticket } = useParams()
+  // const { ticket } = useParams()
   
   useEffect(() => {
     const fetchPreference = async () => {
       try {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const response = await authService.payment(ticket!)
+        const response = await authService.payment('dokasdnioask')
         const { preferenceId } = await response.data.id;
         const  init_point  = await response.data.sandbox_init_point
         console.log(init_point)
@@ -32,7 +32,7 @@ const Pagamento = () => {
     };
 
     fetchPreference();
-  }, [ticket]);
+  }, []);
 
 
   const customization: any = {

@@ -4,22 +4,22 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
-import Login from './pages/door.tsx'
 import Room from './pages/room.tsx';
 import Pagamento from './pages/pagamento.tsx';
 import Adm from './pages/adm.tsx';
+import Door from './pages/door.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />
+    element: <Door />
   },
   {
     path: "/room",
     element: <Room />
   },
   {
-    path: "/pagamento/:ticket",
+    path: "/pagamento",
     element: <Pagamento />
   },
   {
