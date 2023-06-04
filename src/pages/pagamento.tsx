@@ -14,25 +14,25 @@ const Pagamento = () => {
   const [initialization, setInitialization] = useState({ amount: 1000, preferenceId: '' });
   const { ticket } = useParams()
   
-  // useEffect(() => {
-  //   const fetchPreference = async () => {
-  //     try {
-  //       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  //       // const response = await authService.payment(ticket!)
-  //       const { preferenceId } = await response.data.id;
-  //       const  init_point  = await response.data.sandbox_init_point
-  //       console.log(init_point)
-  //       sessionStorage.setItem("init-point", init_point);
-  //       console.log(response)
-  //       redirect(init_point)
-  //       setInitialization(prevState => ({ ...prevState, preferenceId: preferenceId }));
-  //     } catch (error) {
-  //       console.error('Erro ao buscar a preferência de pagamento', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchPreference = async () => {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const response = await authService.payment(ticket!)
+        const { preferenceId } = await response.data.id;
+        const  init_point  = await response.data.sandbox_init_point
+        console.log(init_point)
+        sessionStorage.setItem("init-point", init_point);
+        console.log(response)
+        redirect(init_point)
+        setInitialization(prevState => ({ ...prevState, preferenceId: preferenceId }));
+      } catch (error) {
+        console.error('Erro ao buscar a preferência de pagamento', error);
+      }
+    };
 
-  //   fetchPreference();
-  // }, [ticket]);
+    fetchPreference();
+  }, [ticket]);
 
 
   const customization: any = {
@@ -78,13 +78,13 @@ const Pagamento = () => {
         <p className={"pog2"}>Faça o pagamento e contamos com a sua presença <span className={"pogspan"}>:)</span></p>
       <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
       <div>
-      {/* <Payment
+      <Payment
       initialization={initialization}
       customization={customization}
       onSubmit={onSubmit}
       onReady={onReady}
       onError={onError}
-      /> */}
+      />
       </div>
     </div>
     </div>
