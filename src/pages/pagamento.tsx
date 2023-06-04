@@ -10,7 +10,7 @@ import '../css/pagamento.css'
 
 initMercadoPago('TEST-480b4324-8e4c-4565-a03b-07a158c89fdf');
 
-const Pagamento = () => {
+function Pagamento() {
   const [initialization, setInitialization] = useState({ amount: 1000, preferenceId: '' });
   // const { ticket } = useParams()
   
@@ -90,6 +90,6 @@ const Pagamento = () => {
     </div>
     </>
   );
-};
+  }
 
 export default Pagamento;
