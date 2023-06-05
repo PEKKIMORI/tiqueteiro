@@ -50,7 +50,7 @@ const authService = {
   return res
   },
   payment: async (ticket: string) => {
-    const res = await api.post(`/payment/eee90279-7bb9-410b-94bc-bc645a765333`).catch((error) => {
+    const res = await api.post(`/payment/${ticket}`).catch((error) => {
       if (error.response.status === 500 || error.response.status === 501) {
         return error.response;
       }
