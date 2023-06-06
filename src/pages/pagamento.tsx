@@ -20,13 +20,14 @@ function Pagamento() {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const response = await authService.payment(ticket!)
         const { preferenceId } = await response.data.id;
+        console.log(preferenceId)
         const init_point = await response.data.sandbox_init_point
         console.log(init_point)
         sessionStorage.setItem("init-point", init_point);
         console.log(response)
   
         setPreferenceId(preferenceId);
-        console.log(preferenceId)
+        
       } catch (error) {
         console.error('Erro ao buscar a preferência de pagamento', error);
       }
