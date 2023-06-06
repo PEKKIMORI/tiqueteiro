@@ -56,7 +56,7 @@ export default function Room() {
                 </div>
                 <div className="flip-card-back">
                   <h1>Copiar link:</h1>
-                  <button className="grongos" onClick={() => copy(`http://31.220.31.254:5173/pagamento/${ticket.code}`)}>(´♡ヮ♡`)</button>
+                  <button className="grongos" onClick={() => copy(`http://tiqueteiro-etec.shop/pagamento/${ticket.code}`)}>(´♡ヮ♡`)</button>
                 </div>
               </div>
             </div>

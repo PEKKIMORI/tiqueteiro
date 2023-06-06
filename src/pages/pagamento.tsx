@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { initMercadoPago, Payment, Wallet} from '@mercadopago/sdk-react';
+import { initMercadoPago, Wallet} from '@mercadopago/sdk-react';
 
 import {   useParams } from 'react-router-dom';
 import authService from '../services/authService';
