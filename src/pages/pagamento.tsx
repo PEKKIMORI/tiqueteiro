@@ -19,7 +19,7 @@ function Pagamento() {
       try {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const response = await authService.payment(ticket!)
-        const { preferenceId } = await response.data.id;
+        const preferenceId = await response.data.id;
         console.log(response.data.id)
         const init_point = await response.data.sandbox_init_point
         console.log(init_point)
