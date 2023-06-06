@@ -14,7 +14,6 @@ function Pagamento() {
   const [preferenceId, setPreferenceId] = useState('')
   const { ticket } = useParams()
   
-  useEffect(() => {
     const fetchPreference = async () => {
       try {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -32,7 +31,6 @@ function Pagamento() {
     };
 
     fetchPreference();
-  }, []);
 
   return (
     <>
