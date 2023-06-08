@@ -18,9 +18,19 @@ export default function Room() {
     apiTransactionId?: string | null;
     userId: number;
   }
+
+  interface User { 
+    id: number;
+    name: string
+    email: string
+    password: string
+    rm: number
+    role: 'admin' | 'user'
+  }
+
   const [, copy] = useCopyToClipboard();
   const [tickets, setTickets] = useState<Ticket[]>([]);
-
+  const [user, setUser] = useState<User>();
   useEffect(() => {
     const fetchTickets = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
@@ -28,7 +38,6 @@ export default function Room() {
         navigate('/');
         return;
       }
-
       const response = await authService.getTickets(token);
 
       if (response.status === 200) {
@@ -36,6 +45,14 @@ export default function Room() {
       }
     };
 
+    const findUser = async () => {
+      const token = sessionStorage.getItem('onebitflix-token');
+      const res = await authService.findUser(token!)
+      if (res.status === 200) {
+        setUser(res.data.user)
+      }
+    }
+    findUser()
     fetchTickets();
   }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
 
@@ -44,6 +61,13 @@ export default function Room() {
       <h1 className="fonfon">Compre já seus ingressos!</h1>
       <h3 style={{ textAlign: 'center' }}>:D</h3>
       <p style={{ margin: '3rem', textAlign: 'center' }}>Envie este link para o seu convidado, nele será realizado o pagamento do ingresso.</p>
+
+      {user?.role === 'admin' && (  // Check if the user role is 'admin'
+      <div className="admin-buttons">
+        <button onClick={() => navigate('/adm')}>Scanner</button>
+        <button onClick={() => navigate('/validar')}>Validar</button>
+      </div>
+      )}
 
       <div className="box">
         {tickets.length > 0 ? (

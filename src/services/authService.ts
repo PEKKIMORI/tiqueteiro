@@ -24,6 +24,12 @@ export type TicketType = {
   userId: number
 };
 
+interface validateParams {
+  code: string
+  payerEmail: string
+  payerName: string
+}
+
 const authService = {
   register: async (params: RegisterParams) => {
     const res = await api.post("/auth/register", params).catch((error) => {
@@ -49,6 +55,19 @@ const authService = {
 
   return res
   },
+  findUser:async (token: string) => {
+    const res = await api.get('/find', {
+      headers: {
+          Authorization: `Bearer ${ token }`
+      }
+    }).catch((error) => {
+      if (error.response.status === 400 || error.response.status === 500) {
+        return error.response;
+      }
+    })
+    console.log(res)
+    return res
+  },
   payment: async (ticket: string) => {
     const res = await api.post(`/payment/${ticket}`).catch((error) => {
       if (error.response.status === 500 || error.response.status === 501) {
@@ -68,6 +87,16 @@ const authService = {
     })
     console.log(res)
     return res;
+  },
+  validate:async (params: validateParams) => {
+    const res = await api.post('/validate', params).catch((error) => {
+      if (error.response.status === 400 || error.response.status === 401) {
+        return error.response;
+      }
+      return error;
+     });
+     
+    return res
   }
 };
 

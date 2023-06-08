@@ -8,6 +8,7 @@ import Room from './pages/room.tsx';
 import Pagamento from './pages/pagamento.tsx';
 import Adm from './pages/adm.tsx';
 import Door from './pages/door.tsx';
+import TicketValidation from './pages/validar.tsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/adm",
     element: <Adm />
+  },
+  {
+    path: "/validar",
+    element: <TicketValidation/>
   }
 ]);
 
