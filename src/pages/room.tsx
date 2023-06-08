@@ -52,7 +52,7 @@ export default function Room() {
       const token = sessionStorage.getItem('onebitflix-token');
       const res = await authService.findUser(token!)
       if (res.status === 200) {
-        setUser(res.data.user.role)
+        setUser(res.data.role)
       }
       console.log(res)
     }
