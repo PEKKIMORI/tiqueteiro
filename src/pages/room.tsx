@@ -62,7 +62,7 @@ export default function Room() {
     findUser()
     fetchTickets();
   }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
-  console.log(user)
+  console.log(tickets)
   return (
     <>
       <h1 className="fonfon">Compre já seus ingressos!</h1>
