@@ -30,7 +30,7 @@ export default function Room() {
 
   const [, copy] = useCopyToClipboard();
   const [tickets, setTickets] = useState<Ticket[]>([]);
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | null>(null);
   useEffect(() => {
     const fetchTickets = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
@@ -51,6 +51,7 @@ export default function Room() {
       if (res.status === 200) {
         setUser(res.data.user)
       }
+  
     }
     findUser()
     fetchTickets();
