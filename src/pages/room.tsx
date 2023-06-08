@@ -51,12 +51,12 @@ export default function Room() {
     const findUser = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
       const res = await authService.findUser(token!)
+      const user: User = res.data.user
       if (res.status === 200) {
-        const user = res.data.user
         setUser(user)
-        console.log(user)
+        console.log(user.id)
       }
-      console.log(user)
+      console.log(user?.id)
     }
     findUser()
     fetchTickets();
