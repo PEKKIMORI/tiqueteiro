@@ -33,7 +33,7 @@ export default function Room() {
 
   const [, copy] = useCopyToClipboard();
   const [tickets, setTickets] = useState<Ticket[]>([]);
-  const [user, setUser] = useState<string>();
+  const [user, setUser] = useState<User>();
   useEffect(() => {
     const fetchTickets = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
@@ -51,8 +51,9 @@ export default function Room() {
     const findUser = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
       const res = await authService.findUser(token!)
+      const user = res.data
       if (res.status === 200) {
-        setUser(res.data.role)
+        setUser(user)
       }
       console.log(res)
     }
@@ -66,7 +67,7 @@ export default function Room() {
       <h3 style={{ textAlign: 'center' }}>:D</h3>
       <p style={{ margin: '3rem', textAlign: 'center' }}>Envie este link para o seu convidado, nele será realizado o pagamento do ingresso.</p>
 
-      {user === 'admin' && (
+      {user?.role === 'admin' && (
       <div className="admin-buttons">
         <button onClick={() => navigate('/adm')}>Scanner</button>
         <button onClick={() => navigate('/validar')}>Validar</button>
