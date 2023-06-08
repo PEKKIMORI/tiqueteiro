@@ -54,9 +54,8 @@ export default function Room() {
       const user = res.data.user
       if (res.status === 200) {
         setUser(user)
-        console.log(user.id)
       }
-      console.log(user?.id)
+      console.log(res)
     }
 
     findUser()
