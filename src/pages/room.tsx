@@ -51,17 +51,18 @@ export default function Room() {
     const findUser = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
       const res = await authService.findUser(token!)
-      const user: User = res.data.user
+      const user = res.data.user
       if (res.status === 200) {
         setUser(user)
         console.log(user.id)
       }
       console.log(user?.id)
     }
+
     findUser()
     fetchTickets();
   }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
-
+  console.log(user)
   return (
     <>
       <h1 className="fonfon">Compre já seus ingressos!</h1>
