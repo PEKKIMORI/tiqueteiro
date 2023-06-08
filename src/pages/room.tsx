@@ -33,7 +33,7 @@ export default function Room() {
 
   const [, copy] = useCopyToClipboard();
   const [tickets, setTickets] = useState<Ticket[]>([]);
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User[]>([]);
   useEffect(() => {
     const fetchTickets = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
@@ -61,14 +61,14 @@ export default function Room() {
     findUser()
     fetchTickets();
   }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
-  console.log(tickets)
+  console.log(user)
   return (
     <>
       <h1 className="fonfon">Compre já seus ingressos!</h1>
       <h3 style={{ textAlign: 'center' }}>:D</h3>
       <p style={{ margin: '3rem', textAlign: 'center' }}>Envie este link para o seu convidado, nele será realizado o pagamento do ingresso.</p>
 
-      {user?.role === 'admin' && (  // Check if the user role is 'admin'
+      {user && user.role === 'admin' && (
       <div className="admin-buttons">
         <button onClick={() => navigate('/adm')}>Scanner</button>
         <button onClick={() => navigate('/validar')}>Validar</button>
