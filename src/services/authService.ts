@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from "axios";
 import api from "./api";
 
 export interface RegisterParams {
@@ -88,14 +89,14 @@ const authService = {
     console.log(res)
     return res;
   },
-  validate:async (params: validateParams) => {
-    const res = await api.post('/validate', params).catch((error) => {
+  validate:async (params: validateParams, config?: AxiosRequestConfig) => {
+    const res = await api.post('/validate', params, config).catch((error) => {
       if (error.response.status === 400 || error.response.status === 401) {
         return error.response;
       }
       return error;
      });
-     
+
     return res
   }
 };

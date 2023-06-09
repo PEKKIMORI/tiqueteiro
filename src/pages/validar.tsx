@@ -33,9 +33,21 @@ export default function TicketValidation() {
   const handleValidation = async (event: React.FormEvent) => {
     event.preventDefault();
     const params = { payerName, payerEmail, code };
-
+  
     try {
-      const { data, status } = await authService.validate(params);
+      const token = sessionStorage.getItem("onebitflix-token");
+      if (!token) {
+        // Tratar caso não exista token
+        return;
+      }
+      
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      
+      const { data, status } = await authService.validate(params, config);
       if (status === 201) {
         setValidationResult("O código foi validado.");
       } else {
