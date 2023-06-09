@@ -9,6 +9,7 @@ import Pagamento from './pages/pagamento.tsx';
 import Adm from './pages/adm.tsx';
 import Door from './pages/door.tsx';
 import TicketValidation from './pages/validar.tsx';
+import ConfirmEmail from './pages/confirmar.tsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/validar",
     element: <TicketValidation/>
+  },
+  {
+    path: "/confirmar-email/:token",
+    element: <ConfirmEmail/>
   }
 ]);
 
