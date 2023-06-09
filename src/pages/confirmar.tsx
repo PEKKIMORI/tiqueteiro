@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router-dom';
+import '../css/room.css'
 
 const ConfirmEmail = () => {
+  const navigate = useNavigate()
   const [confirmationStatus, setConfirmationStatus] = useState('');
   const { token } = useParams()
   const handleConfirmEmail = async () => {
@@ -25,6 +26,7 @@ const ConfirmEmail = () => {
       <h1>Confirmar Email</h1>
       <button onClick={handleConfirmEmail}>Confirmar</button>
       {confirmationStatus && <p>{confirmationStatus}</p>}
+      <button onClick={() => navigate('/')}>Voltar para login</button>
     </div>
   );
 };
