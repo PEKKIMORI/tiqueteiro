@@ -11,7 +11,7 @@
 .welcome {
     display:flexbox;
     font-size: 35px;
-    margin: 100px auto 50px;
+    margin: auto 50px;
     text-align: center;
 }
 
@@ -50,10 +50,7 @@
   .botchola:focus {
     opacity: .75;
   }
-  
-  .admin-buttons {
-    margin-bottom: 3rem;
-  }
+
 
 .sas{
     margin-bottom: 2rem;
