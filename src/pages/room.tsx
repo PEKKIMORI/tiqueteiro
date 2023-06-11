@@ -64,7 +64,7 @@ export default function Room() {
   return (
     <>
 
-      <div className="container">
+      <div className="box">
 
         <div className={"text-box"}>
           <h1 className={"pog1"}>FESTA JUNINA</h1>
