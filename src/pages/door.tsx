@@ -49,13 +49,6 @@ function Door () {
 
     if (status === 200) {
       navigate("/room");
-    } else {
-      // setToastColor("bg-danger");
-      // setToastIsOpen(true);
-      // setTimeout(() => {
-      //   setToastIsOpen(false);
-      // }, 1000 * 3);
-      // setToastMessage("Email ou senha incorretos!");
     }
   };
 
@@ -78,7 +71,7 @@ function Door () {
         <br />
         Cada aluno tem o direito de convidar até duas pessoas, que comprarão o ingresso em seu nome.
         <br />
-        A compra do ingresso será feita através do PIX do grêmio: (??).
+        A compra do ingresso será feita através do PIX do grêmio: (11) 99934-3712.
         <br />
         Para fazer a compra, antes o aluno deve criar uma conta, depois, o aluno deve realizar o pagamento no pix e deixar na mensagem: o código do seu ticket, o nome do seu convidado, e o email para ser enviado o ingresso digital.
       </p>

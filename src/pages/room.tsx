@@ -69,7 +69,7 @@ export default function Room() {
           <h1 className={"pog1"}>FESTA JUNINA</h1>
           <h1 className={"pog1"}>FESTA JUNINA</h1>
         </div>
-          <p className={"pog2"}>Contamos com a sua presença <span className={"pogspan"}>:)</span></p>
+          <p className={"pog2"}>Contamos com a sua presença <br/> PIX: (11) 99934-3712 <span className={"pogspan"}>:)</span></p>
           <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
         </div>
       <div className="box">
