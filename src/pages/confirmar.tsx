@@ -27,7 +27,7 @@ const ConfirmEmail = () => {
       <button className="botchola" onClick={() => navigate('/')}>Voltar para login..</button>
       <button className="botchola" onClick={handleConfirmEmail}>Confirmar E-mail!</button>
       {confirmationStatus && <p>{confirmationStatus}</p>}
-      </div>
+    </div>
   );
 };
 
