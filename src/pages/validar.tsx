@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import authService from "../services/authService";
 import { useNavigate } from "react-router-dom";
+import '../css/validar.css'
 
 export default function TicketValidation() {
   const navigate = useNavigate();
