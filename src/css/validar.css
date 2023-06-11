@@ -6,6 +6,8 @@
     margin: 0px auto 100px;
     margin-top: 2rem;
     background: #fff;
+    align-items: center;
+    justify-content: center;
   }
 
 .welcome {
@@ -43,8 +45,6 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     width: 100%;
-    align-items: center;
-    justify-content: center;
   }
   
   .botchola:hover,
