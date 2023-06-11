@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 import Room from './pages/room.tsx';
-import Pagamento from './pages/pagamento.tsx';
 import Adm from './pages/adm.tsx';
 import Door from './pages/door.tsx';
 import TicketValidation from './pages/validar.tsx';
@@ -19,10 +18,6 @@ const router = createBrowserRouter([
   {
     path: "/room",
     element: <Room />
-  },
-  {
-    path: "/pagamento/:ticket",
-    element: <Pagamento />
   },
   {
     path: "/adm",

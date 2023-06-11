@@ -71,7 +71,7 @@ export default function Room() {
           <p className={"pog2"}>Faça o pagamento e contamos com a sua presença <span className={"pogspan"}>:)</span></p>
         <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
       </div>
-
+    <>
       <div className="box">
       {user?.role === 'admin' && (
       <div className="admin-buttons">
@@ -79,7 +79,7 @@ export default function Room() {
         <button onClick={() => navigate('/validar')}>Validar</button>
       </div>
       )}
-      
+
       {tickets.length > 0 ? (
           tickets.map((ticket) => (
             <div className="flip-card" key={ticket.id}>
@@ -89,7 +89,7 @@ export default function Room() {
                   <img src="https://cdn.discordapp.com/attachments/885280158704074884/1111762811354366003/Movie-Ticket-PNG.png" alt="Ticket" />
                 </div>
                 <div className="flip-card-back">
-                  <h1>Copiar link:</h1>
+                  <h1>Copiar Código:</h1>
                   <button className="grongos" onClick={() => copy(`${ticket.code}`)}>(´♡ヮ♡`)</button>
                 </div>
               </div>
@@ -99,6 +99,7 @@ export default function Room() {
           <p>Nenhum ticket encontrado.</p>
       )}
       </div>
+    </>
     </>
   );
 }
