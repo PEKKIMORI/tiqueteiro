@@ -4,5 +4,52 @@
     width: 900px;
     height: 550px;
     margin: 0px auto 100px;
+    margin-top: 2rem;
     background: #fff;
+  }
+
+.welcome {
+    display:flexbox;
+    font-size: 35px;
+    margin: 100px auto 50px;
+    text-align: center;
+}
+
+
+.botchola {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: 1rem;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+  }
+  
+  .botchola:hover,
+  .botchola:focus {
+    opacity: .75;
+  }
+  
+  .admin-buttons {
+    margin-bottom: 3rem;
   }
