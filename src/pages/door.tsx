@@ -78,10 +78,9 @@ function Door () {
         <br />
         Cada aluno tem o direito de convidar até duas pessoas, que comprarão o ingresso em seu nome.
         <br />
-        A compra do ingresso só poderá ser feita via esse site.
+        A compra do ingresso será feita através do PIX do grêmio: (??).
         <br />
-        Para fazer a compra, antes o aluno deve criar uma conta, e com ela, realizar o pagamento via PIX, cartão de
-        crédito/débito, ou boleto.
+        Para fazer a compra, antes o aluno deve criar uma conta, depois, o aluno deve realizar o pagamento no pix e deixar na mensagem: o código do seu ticket, o nome do seu convidado, e o email para ser enviado o ingresso digital.
       </p>
       <p className="tip">OBRIGADO!</p>
       <div className="cont">
