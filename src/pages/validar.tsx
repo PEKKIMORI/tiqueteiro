@@ -60,10 +60,10 @@ export default function TicketValidation() {
 
   return (
     <div className= "cont">
-		  <h1 className="welcome">Oi! Seja bem-vindo :D</h1>
+		  <h1 className="welcome">Validação de Tickets :D</h1>
       <form onSubmit={handleValidation}>
         <div>
-          <label htmlFor="payerEmail">E-mail a ser enviado o Ticket:</label>
+          <label htmlFor="payerEmail">E-mail que será enviado o ticket:</label>
           <input
             type="email"
             id="payerEmail"
@@ -73,7 +73,7 @@ export default function TicketValidation() {
           />
         </div>
         <div>
-          <label htmlFor="payerName">Nome do Convidado</label>
+          <label htmlFor="payerName">Nome do convidado:</label>
           <input
             type="text"
             id="payerName"
@@ -92,7 +92,7 @@ export default function TicketValidation() {
             required
           />
         </div>
-        <button className="botchola" type="submit">Validate Ticket</button>
+        <button className="botchola" type="submit">Validar ingresso</button>
       </form>
       {validationResult && <p>{validationResult}</p>}
     </div>

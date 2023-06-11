@@ -29,8 +29,9 @@
     font-weight: 700;
     line-height: 1.5;
     margin: 0;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     max-width: none;
+    max-width: fit-content;
     min-height: 44px;
     min-width: 10px;
     outline: none;
