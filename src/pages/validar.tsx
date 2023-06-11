@@ -59,7 +59,7 @@ export default function TicketValidation() {
   };
 
   return (
-    <div>
+    <div className= "cont">
       <h1>Ticket Validation</h1>
       <form onSubmit={handleValidation}>
         <div>

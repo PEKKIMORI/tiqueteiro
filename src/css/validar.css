@@ -1,0 +1,8 @@
+.cont {
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+    height: 550px;
+    margin: 0px auto 100px;
+    background: #fff;
+  }
