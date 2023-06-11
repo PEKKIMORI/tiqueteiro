@@ -213,6 +213,7 @@
   font-weight: 700;
   line-height: 1.5;
   margin: 0;
+  margin-bottom: 1rem;
   max-width: none;
   min-height: 44px;
   min-width: 10px;
@@ -231,4 +232,8 @@
 .botchola:hover,
 .botchola:focus {
   opacity: .75;
+}
+
+.admin-buttons {
+  margin-bottom: 3rem;
 }
