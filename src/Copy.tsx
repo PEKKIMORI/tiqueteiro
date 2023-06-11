@@ -16,6 +16,7 @@ function useCopyToClipboard(): [CopiedValue, CopyFn] {
     try {
       await navigator.clipboard.writeText(text)
       setCopiedText(text)
+      alert("Link copiado")
       return true
     } catch (error) {
       console.warn('Copy failed', error)
