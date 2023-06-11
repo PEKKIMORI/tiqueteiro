@@ -24,7 +24,7 @@ const ConfirmEmail = () => {
   return (
     <div>
       <div className="ragatanga">
-      <div className="pog2"></div>
+      <div className="pog2">:D</div>
       <button className="botchola" onClick={handleConfirmEmail}>Confirmar E-mail!</button>
       {confirmationStatus && <p>{confirmationStatus}</p>}
       <button className="botchola" onClick={() => navigate('/')}>Voltar para login..</button>
