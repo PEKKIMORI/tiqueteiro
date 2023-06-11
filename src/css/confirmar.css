@@ -42,8 +42,9 @@
   transform: translateY(0);
 }
 
-.pog {
+.ragatanga {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    flex-direction: column;
+  }
