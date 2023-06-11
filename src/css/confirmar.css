@@ -1,3 +1,17 @@
+.ragatanga {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+.pog2 {
+    font-size: 2vw;
+    font-weight: 900;
+    margin-top: 1em;
+    text-align: center;
+}
+
 .botchola {
     background-color: #222;
     border-radius: 4px;
@@ -12,7 +26,8 @@
     line-height: 1.5;
     margin: 0;
     margin-bottom: 1rem;
-    max-width: none;
+    margin-top: 1rem;
+    max-width: fit-content;
     min-height: 44px;
     min-width: 10px;
     outline: none;
