@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import '../css/room.css'
+import '../css/confirmar.css'
 
 const ConfirmEmail = () => {
   const navigate = useNavigate()
