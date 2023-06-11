@@ -12,14 +12,13 @@
 
 .text-box {
 	font-family: "Inter", sans-serif;
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .pog1 {
-	margin-top: 25rem;
 	font-family: "Inter", sans-serif;
     font-size: 8vw;
     font-weight: 900;
