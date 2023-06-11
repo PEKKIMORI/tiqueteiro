@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { generatePDF } from '../Pdf';
 
 import '../css/door.css';
 import authService from '../services/authService';
@@ -102,9 +101,6 @@ function Door () {
               LOGIN
             </button>
           </form>
-            <button type="button" className="fb-btn" onClick={generatePDF}>
-              Gere o seu <span>PDF</span>
-            </button>
           
         </div>
         <div className="sub-cont">
