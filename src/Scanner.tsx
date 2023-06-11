@@ -14,17 +14,17 @@ interface Ticket {
   userId: number;
 }
 
-interface User { 
-    id: number;
-    name: string
-    email: string
-    password: string
-    rm: number
-    role: 'admin' | 'user'
-    emailToken: string | null
-    expireToken?: Date | null
-    confirmedEmail?: boolean
-  }
+// interface User { 
+//     id: number;
+//     name: string
+//     email: string
+//     password: string
+//     rm: number
+//     role: 'admin' | 'user'
+//     emailToken: string | null
+//     expireToken?: Date | null
+//     confirmedEmail?: boolean
+//   }
 
 function Scanner() {
   const [scanResult, setScanResult] = useState<string | null>(null);
