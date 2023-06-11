@@ -63,7 +63,7 @@ export default function Room() {
   }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
   return (
     <>
-
+    <div className="ragatanga">
       <div className="box">
         <div className="container">
         <div className={"text-box"}>
@@ -73,6 +73,7 @@ export default function Room() {
           <p className={"pog2"}>Faça o pagamento e contamos com a sua presença <span className={"pogspan"}>:)</span></p>
         <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
         </div>
+
       {user?.role === 'admin' && (
       <div className="admin-buttons">
         <button onClick={() => navigate('/adm')}>Scanner</button>
@@ -100,6 +101,8 @@ export default function Room() {
           <p>Nenhum ticket encontrado.</p>
       )}
       </div>
+      </div>
     </>
+    
   );
 }

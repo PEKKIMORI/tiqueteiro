@@ -72,6 +72,13 @@
     color: rgb(68, 68, 68);
 }
 
+.ragatanga {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .box {
 	display: flex;
 	justify-content: center;
