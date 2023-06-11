@@ -82,7 +82,7 @@ export default function TicketValidation() {
             required
           />
         </div>
-        <div>
+        <div className="sas">
           <label htmlFor="code">Código copiado:</label>
           <input
             type="text"
@@ -92,7 +92,7 @@ export default function TicketValidation() {
             required
           />
         </div>
-        <button className="botchola" type="submit">Validar ingresso</button>
+      <button className="botchola" type="submit">Validar ingresso</button>
       </form>
       {validationResult && <p>{validationResult}</p>}
     </div>
