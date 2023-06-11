@@ -63,7 +63,7 @@ export default function Room() {
   }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
   return (
     <>
-    <>
+      <div className="box">
       <div className={"container"}>
         <div className={"text-box"}>
           <h1 className={"pog1"}>FESTA JUNINA</h1>
@@ -72,7 +72,6 @@ export default function Room() {
           <p className={"pog2"}>Faça o pagamento e contamos com a sua presença <span className={"pogspan"}>:)</span></p>
         <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
       </div>
-    </>
 
       {user?.role === 'admin' && (
       <div className="admin-buttons">
@@ -81,7 +80,6 @@ export default function Room() {
       </div>
       )}
 
-      <div className="box">
         {tickets.length > 0 ? (
           tickets.map((ticket) => (
             <div className="flip-card" key={ticket.id}>
