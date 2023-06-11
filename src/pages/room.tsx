@@ -96,11 +96,11 @@ export default function Room() {
     
       {user?.role === 'admin' && (
       <div className="admin-buttons">
-        <button onClick={() => navigate('/adm')}>Scanner</button>
-        <button onClick={() => navigate('/validar')}>Validar</button>
+        <button className="botchola" onClick={() => navigate('/adm')}>Scanner</button>
+        <button className="botchola" onClick={() => navigate('/validar')}>Validar</button>
       </div>
       )}
-      
+
       </div>
     </>
     
