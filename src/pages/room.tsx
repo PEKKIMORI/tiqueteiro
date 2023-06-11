@@ -64,6 +64,7 @@ export default function Room() {
   return (
     <>
     <div className="ragatanga">
+    <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
       <div className="box">
         <div className="container">
         <div className={"text-box"}>
@@ -71,7 +72,6 @@ export default function Room() {
           <h1 className={"pog1"}>FESTA JUNINA</h1>
         </div>
           <p className={"pog2"}>Faça o pagamento e contamos com a sua presença <span className={"pogspan"}>:)</span></p>
-        <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
         </div>
 
       {user?.role === 'admin' && (
