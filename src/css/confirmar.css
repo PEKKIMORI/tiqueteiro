@@ -1,18 +1,18 @@
 
 .button-27 {
-  background-color: #ebc46f;
-  border: 2px solid #74633f;
+  background-color: #ddcba3;
+  border: 2px solid #b4a88c;
   border-radius: 15px;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 16px;
+  font-size: 32px;
   font-weight: 600;
   line-height: normal;
   margin: 0;
-  margin-bottom: 3rem;
+  margin-top: 3rem;
   min-height: 60px;
   min-width: 0;
   max-width: fit-content;
