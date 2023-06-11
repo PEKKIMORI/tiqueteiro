@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+ const scanner = new Html5QrcodeScanner('reader', {
+            qrbox: {
+                width: 700,
+                height: 700,
+            },
+            fps: 5,
+        }, true)
