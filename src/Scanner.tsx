@@ -1,6 +1,7 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 interface Ticket {
   id: number;
@@ -27,6 +28,7 @@ interface Ticket {
 //   }
 
 function Scanner() {
+  const { token } = useParams()
   const [scanResult, setScanResult] = useState<string | null>(null);
   const [ticket, setTicket] = useState<Ticket | null>(null);
 
