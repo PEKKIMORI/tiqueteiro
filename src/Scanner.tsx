@@ -58,7 +58,7 @@ function Scanner() {
 
   async function scanTicket(code: string) {
     try {
-      const response = await axios.post(`/scan/${code}`);
+      const response = await axios.post(`https://tiqueteiro-etec.shop:3000/scan/${code}`);
       if (response.status === 201) {
         setTicket(response.data.ticket);
       } else {
