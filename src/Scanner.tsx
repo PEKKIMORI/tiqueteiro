@@ -67,7 +67,7 @@ function Scanner() {
         setRm(response.data.rm);
         setErro(false);
         setError(undefined);
-      } else {
+      } else if ( response.status === 400) {
         console.log("Ocorreu um erro:", response.data.message);
         setErro(true);
         setError(response.data.message);
