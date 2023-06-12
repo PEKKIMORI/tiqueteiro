@@ -2,6 +2,7 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import authService from "./services/authService";
 
 interface Ticket {
   id: number;
@@ -30,6 +31,7 @@ interface Ticket {
 function Scanner() {
   const { token } = useParams()
   const [scanResult, setScanResult] = useState<string | null>(null);
+  const [rm, setRm] = useState<string | null>(null);
   const [ticket, setTicket] = useState<Ticket | null>(null);
 
   useEffect(() => {
@@ -60,9 +62,10 @@ function Scanner() {
 
   async function scanTicket(code: string) {
     try {
-      const response = await axios.post(`https://tiqueteiro-etec.shop:3000/scan/${code}`);
+      const response = await authService.scan(code)
       if (response.status === 201) {
         setTicket(response.data.ticket);
+        setRm(response.data.rm)
       } else {
         console.log("Ocorreu um erro:", response.data.message);
       }
@@ -80,7 +83,7 @@ function Scanner() {
             <p>ticket aprovado</p>
               <p>Nome do convidado: {ticket.buyerName}</p>
               <p>Nome do aluno: {ticket.sellerName}</p>
-              
+              <p>RM do alunoL {rm}</p>
             </div>
           ) : (
             <div>Loading ticket information...</div>

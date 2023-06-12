@@ -61,7 +61,7 @@ export default function TicketValidation() {
 
   return (
     <div className= "cont">
-		  <h1 className="welcome">Validação de Tickets :D</h1>
+		<h1 className="welcome">Validação de Tickets :D</h1>
       <form onSubmit={handleValidation}>
         <div>
           <label htmlFor="payerEmail">E-mail que será enviado o ticket:</label>
