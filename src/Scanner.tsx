@@ -60,7 +60,7 @@ function Scanner() {
     try {
       const response = await axios.post(`/scan/${code}`);
       if (response.status === 201) {
-        setTicket(response.data);
+        setTicket(response.data.ticket);
       } else {
         console.log("Ocorreu um erro:", response.data.message);
       }
