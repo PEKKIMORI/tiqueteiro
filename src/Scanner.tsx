@@ -89,7 +89,7 @@ function Scanner() {
               <p>RM do aluno: {rm}</p>
             </div>
           ) : (
-            <div>Loading ticket information...</div>
+            <div><p>{error}</p></div>
           )}
           {ticket && erro ? (
             <div>
