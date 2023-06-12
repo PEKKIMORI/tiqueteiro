@@ -1,7 +1,5 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
 import authService from "./services/authService";
 
 interface Ticket {
@@ -16,23 +14,12 @@ interface Ticket {
   userId: number;
 }
 
-// interface User {
-//     id: number;
-//     name: string
-//     email: string
-//     password: string
-//     rm: number
-//     role: 'admin' | 'user'
-//     emailToken: string | null
-//     expireToken?: Date | null
-//     confirmedEmail?: boolean
-//   }
-
 function Scanner() {
-  const { code } = useParams();
   const [scanResult, setScanResult] = useState<string | null>(null);
   const [rm, setRm] = useState<string | null>(null);
   const [ticket, setTicket] = useState<Ticket | null>(null);
+  const [erro, setErro] = useState<boolean>(false);
+  const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const scanner = new Html5QrcodeScanner(
@@ -78,8 +65,12 @@ function Scanner() {
       if (response.status === 201) {
         setTicket(response.data.ticket);
         setRm(response.data.rm);
+        setErro(false);
+        setError(undefined);
       } else {
         console.log("Ocorreu um erro:", response.data.message);
+        setErro(true);
+        setError(response.data.message);
       }
     } catch (error: any) {
       console.log("Ocorreu um erro:", error.message);
@@ -90,16 +81,21 @@ function Scanner() {
     <div>
       {scanResult ? (
         <div>
-          {ticket ? (
+          {ticket && !erro ? (
             <div>
-              <p>ticket aprovado</p>
+              <p>Ticket aprovado!!</p>
               <p>Nome do convidado: {ticket.buyerName}</p>
               <p>Nome do aluno: {ticket.sellerName}</p>
-              <p>RM do alunoL {rm}</p>
+              <p>RM do aluno: {rm}</p>
             </div>
           ) : (
             <div>Loading ticket information...</div>
           )}
+          {ticket && erro ? (
+            <div>
+              <p>{error}</p>
+            </div>
+          ) : null}
         </div>
       ) : (
         <div id="reader"></div>
