@@ -29,7 +29,7 @@ interface Ticket {
 //   }
 
 function Scanner() {
-  const { token } = useParams()
+  const { code } = useParams()
   const [scanResult, setScanResult] = useState<string | null>(null);
   const [rm, setRm] = useState<string | null>(null);
   const [ticket, setTicket] = useState<Ticket | null>(null);
@@ -61,8 +61,19 @@ function Scanner() {
   }, []);
 
   async function scanTicket(code: string) {
+    const token = sessionStorage.getItem("onebitflix-token");
+      if (!token) {
+        // Tratar caso não exista token
+        return;
+      }
+      
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
     try {
-      const response = await authService.scan(code)
+      const response = await authService.scan(code, config)
       if (response.status === 201) {
         setTicket(response.data.ticket);
         setRm(response.data.rm)
