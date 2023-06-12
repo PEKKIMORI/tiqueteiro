@@ -8,7 +8,7 @@ import authService from '../services/authService';
 function Door () {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const navigate = useNavigate();
-
+  const [showErrorMessage, setShoowErrorMessage ] = useState<boolean>()
   const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -50,6 +50,11 @@ function Door () {
     if (status === 200) {
       navigate("/room");
     }
+
+    if (status === 400 || status === 401) {
+      setShoowErrorMessage(true)
+    }
+
   };
 
   const handleClick = () => {
@@ -98,6 +103,7 @@ function Door () {
               <input type="password" name="password" required />
             </label>
             <p className="forgot-pass">Não oferecemos meios de recuperar sua senha!</p>
+            { showErrorMessage ? <p>Senha ou email incorretos</p> : <p></p>}
             <button type="submit" className="submit">
               LOGIN
             </button>
