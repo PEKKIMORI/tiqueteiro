@@ -136,7 +136,7 @@ function Door () {
                 CRIAR
               </button>
             </form>
-            {showSuccessMessage && <p>Um email foi enviado a sua caixa de emails.</p>}
+            {showSuccessMessage && <p>Email de confirmação enviado. Verifique o lixo eletrônico!</p>}
           </div>
         </div>
       </div>
