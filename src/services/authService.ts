@@ -100,7 +100,7 @@ const authService = {
     return res
   },
   scan: async (code:string, config?: AxiosRequestConfig) => {
-    const res = await api.post(`/scan/${code}`, config).catch((error) => {
+    const res = await api.post(`/scan/${code}`, undefined, config).catch((error) => {
       if (error.response.status === 400 || error.response.status === 401) {
         return error.response;
       }

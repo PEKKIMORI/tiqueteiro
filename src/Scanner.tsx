@@ -16,7 +16,7 @@ interface Ticket {
   userId: number;
 }
 
-// interface User { 
+// interface User {
 //     id: number;
 //     name: string
 //     email: string
@@ -29,7 +29,7 @@ interface Ticket {
 //   }
 
 function Scanner() {
-  const { code } = useParams()
+  const { code } = useParams();
   const [scanResult, setScanResult] = useState<string | null>(null);
   const [rm, setRm] = useState<string | null>(null);
   const [ticket, setTicket] = useState<Ticket | null>(null);
@@ -61,22 +61,23 @@ function Scanner() {
   }, []);
 
   async function scanTicket(code: string) {
-    const token = sessionStorage.getItem("onebitflix-token");
+    try {
+      const token = sessionStorage.getItem("onebitflix-token");
       if (!token) {
         // Tratar caso não exista token
         return;
       }
-      
+
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
-    try {
-      const response = await authService.scan(code, config)
+
+      const response = await authService.scan(code, config);
       if (response.status === 201) {
         setTicket(response.data.ticket);
-        setRm(response.data.rm)
+        setRm(response.data.rm);
       } else {
         console.log("Ocorreu um erro:", response.data.message);
       }
@@ -91,7 +92,7 @@ function Scanner() {
         <div>
           {ticket ? (
             <div>
-            <p>ticket aprovado</p>
+              <p>ticket aprovado</p>
               <p>Nome do convidado: {ticket.buyerName}</p>
               <p>Nome do aluno: {ticket.sellerName}</p>
               <p>RM do alunoL {rm}</p>
