@@ -103,7 +103,7 @@ function Door () {
               <input type="password" name="password" required />
             </label>
             <p className="forgot-pass">Não oferecemos meios de recuperar sua senha!</p>
-            { showErrorMessage ? <p>Senha ou email incorretos</p> : <p></p>}
+            { showErrorMessage ? <p>Senha ou email incorreto</p> : <p></p>}
             <button type="submit" className="submit">
               LOGIN
             </button>
