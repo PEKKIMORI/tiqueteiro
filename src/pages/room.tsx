@@ -84,7 +84,7 @@ export default function Room() {
                 </div>
                 <div className="flip-card-back">
                   <h1>Copiar Código:</h1>
-                  <button className="grongos" onClick={() => copy(`${ticket.code}`)}>(´♡ヮ♡`)</button>
+                  <button className="grongos" onClick={() => copy(`${ticket.code}`)}>Toque O(∩_∩)O</button>
                 </div>
               </div>
             </div>
