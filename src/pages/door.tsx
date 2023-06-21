@@ -9,6 +9,7 @@ function Door () {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const navigate = useNavigate();
   const [showErrorMessage, setShoowErrorMessage ] = useState<boolean>()
+  
   const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -36,6 +37,10 @@ function Door () {
       console.log(error);
     }
   };
+
+  const fechado = async () => {
+    setShowSuccessMessage(true)
+  }
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -149,7 +154,7 @@ function Door () {
                 CRIAR
               </button>
             </form>
-            {showSuccessMessage && <p>Email de confirmação enviado. Verifique o lixo eletrônico!</p>}
+            {showSuccessMessage && <p>As vendas estão fechadas, então você não pode mais criar conta :( </p>}
           </div>
         </div>
       </div>
