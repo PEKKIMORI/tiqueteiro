@@ -52,6 +52,9 @@ export default function Room() {
       const token = sessionStorage.getItem('onebitflix-token');
       const res = await authService.findUser(token!)
       const user = res.data
+      if(user.role !== "admin") {
+        navigate('/')
+      }
       if (res.status === 200) {
         setUser(user)
       }
@@ -74,7 +77,7 @@ export default function Room() {
         </div>
       <div className="box">
 
-      {tickets.length > 0 ? (
+      {tickets.length > 0 && user?.role === "admin" ? (
           tickets.map((ticket) => (
             <div className="flip-card" key={ticket.id}>
               <div className="flip-card-inner">

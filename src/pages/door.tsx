@@ -76,10 +76,7 @@ function Door () {
         <br />
         Cada aluno tem o direito de convidar até duas pessoas, que comprarão o ingresso em seu nome.
         <br />
-        A compra do ingresso será feita através do PIX do grêmio: (11) 99934-3712.
-        <br />
-        <br />
-        Para fazer a compra, antes o aluno deve criar uma conta, depois, o aluno deve realizar o pagamento no pix e deixar na mensagem: o código do seu ticket, o nome do seu convidado, e o email para ser enviado o ingresso digital.
+        <b>AS VENDAS ESTÃO FECHADAS, OS PDFS SERÃO ENVIADOS EM ATÉ 24HORAS. CASO HAJA MAIS ALGUMA DUVIDA MANDE PARA OS CONTATOS ABAIXO!</b>
         <br />
         <br />
         Contatos: (Caso tenham algum problema)
@@ -87,7 +84,8 @@ function Door () {
         +55 11 94821-0236
         <br />
         +55 11 94175-6408
-      
+
+    
       </p>
       <p className="tip">OBRIGADO!</p>
       <div className="cont">
