@@ -72,8 +72,8 @@ export default function Room() {
           <h1 className={"pog1"}>FESTA JUNINA</h1>
           <h1 className={"pog1"}>FESTA JUNINA</h1>
         </div>
-          <p className={"pog2"}>Contamos com a sua presença <br/> VENDAS FECHADAS <span className={"pogspan"}>:0</span></p>
-          <div className={"wadawel"}> Após finalizar o pagamento, você receberá seu ingresso pelo seu e-mail, então se certifique de colocá-lo corretamente, e não se esqueça de trazer o ingresso consigo no seu celular no dia da festa! </div>
+          <p className={"pog2"}>Contamos com a sua presença <br color='red'/> VENDAS FECHADAS <span className={"pogspan"}>:0</span></p>
+          <div className={"wadawel"}> Os códigos estão presentes para aqueles que esqueceram de enviá-los pelo pix anteriormente. Não podera ser feito mais compra de ingressos </div>
         </div>
       <div className="box">
 
