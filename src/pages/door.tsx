@@ -129,7 +129,7 @@ function Door () {
             </div>
           </div>
           <div className="form sign-up">
-            <form onSubmit={handleRegister}>
+            <form onSubmit={fechado}>
               <label className="labela">
                 <span>Nome Completo</span>
                 <input type="text" name="name" required minLength={6} maxLength={60} />
