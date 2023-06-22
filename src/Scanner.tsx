@@ -1,7 +1,8 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect, useState } from "react";
 import authService from "./services/authService";
-import "./css/scanner.css"
+import "./Scanner.css"; // Importe o arquivo CSS personalizado
+
 interface Ticket {
   id: number;
   sellerName: string;
@@ -39,7 +40,7 @@ function Scanner() {
     function success(result: string) {
       scanner.clear();
       setScanResult(result);
-      scanTicket(result); // Chama a função scanTicket passando o resultado da leitura do QR
+      scanTicket(result);
     }
 
     function error(err: any) {
@@ -51,7 +52,6 @@ function Scanner() {
     try {
       const token = sessionStorage.getItem("onebitflix-token");
       if (!token) {
-        // Tratar caso não exista token
         return;
       }
 
@@ -62,12 +62,13 @@ function Scanner() {
       };
 
       const response = await authService.scan(code, config);
+
       if (response.status === 201) {
         setTicket(response.data.ticket);
         setRm(response.data.rm);
         setErro(false);
         setError(undefined);
-      } else if ( response.status === 400) {
+      } else if (response.status === 400) {
         console.log("Ocorreu um erro:", response.data.message);
         setErro(true);
         setError(response.data.message);
@@ -80,7 +81,7 @@ function Scanner() {
   return (
     <div>
       {scanResult ? (
-        <div>
+        <div className="scan-result">
           {ticket && !erro ? (
             <div>
               <p>Ticket aprovado!!</p>
@@ -89,7 +90,9 @@ function Scanner() {
               <p>RM do aluno: {rm}</p>
             </div>
           ) : (
-            <div><p>{error}</p></div>
+            <div>
+              <p>{error}</p>
+            </div>
           )}
           {ticket && erro ? (
             <div>
