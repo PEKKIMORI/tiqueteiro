@@ -9,6 +9,7 @@ function Door () {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const navigate = useNavigate();
   const [showErrorMessage, setShoowErrorMessage ] = useState<boolean>()
+  
   const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -36,6 +37,10 @@ function Door () {
       console.log(error);
     }
   };
+
+  const fechado = async () => {
+    setShowSuccessMessage(true)
+  }
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -76,10 +81,7 @@ function Door () {
         <br />
         Cada aluno tem o direito de convidar até duas pessoas, que comprarão o ingresso em seu nome.
         <br />
-        A compra do ingresso será feita através do PIX do grêmio: (11) 99934-3712.
-        <br />
-        <br />
-        Para fazer a compra, antes o aluno deve criar uma conta, depois, o aluno deve realizar o pagamento no pix e deixar na mensagem: o código do seu ticket, o nome do seu convidado, e o email para ser enviado o ingresso digital.
+        <b>AS VENDAS ESTÃO FECHADAS, OS PDFS SERÃO ENVIADOS EM ATÉ 24HORAS. CASO HAJA MAIS ALGUMA DUVIDA MANDE PARA OS CONTATOS ABAIXO!</b>
         <br />
         <br />
         Contatos: (Caso tenham algum problema)
@@ -87,7 +89,8 @@ function Door () {
         +55 11 94821-0236
         <br />
         +55 11 94175-6408
-      
+
+    
       </p>
       <p className="tip">OBRIGADO!</p>
       <div className="cont">
@@ -126,7 +129,7 @@ function Door () {
             </div>
           </div>
           <div className="form sign-up">
-            <form onSubmit={handleRegister}>
+            <form onSubmit={fechado}>
               <label className="labela">
                 <span>Nome Completo</span>
                 <input type="text" name="name" required minLength={6} maxLength={60} />
@@ -151,7 +154,7 @@ function Door () {
                 CRIAR
               </button>
             </form>
-            {showSuccessMessage && <p>Email de confirmação enviado. Verifique o lixo eletrônico!</p>}
+            {showSuccessMessage && <p>As vendas estão fechadas, então você não pode mais criar conta :( </p>}
           </div>
         </div>
       </div>
