@@ -1,7 +1,7 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect, useState } from "react";
 import authService from "./services/authService";
-
+import "./css/scanner.css"
 interface Ticket {
   id: number;
   sellerName: string;

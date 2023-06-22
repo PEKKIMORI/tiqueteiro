@@ -1,0 +1,39 @@
+/* Scanner.css */
+
+.scan-result {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.scan-result p {
+  margin: 10px 0;
+}
+
+#reader {
+  width: 100%;
+  padding-bottom: 100%; /* Define a proporção da altura em relação à largura */
+  position: relative;
+  background-color: #000;
+}
+
+#reader::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%; /* Define a proporção da altura em relação à largura */
+}
+
+/* Estilos para o leitor de QR code */
+@media (min-width: 768px) {
+  /* Estilos específicos para telas maiores (por exemplo, tablets) */
+  #reader {
+    max-width: 500px;
+    max-height: 500px;
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+
+  #reader::after {
+    display: none;
+  }
+}
