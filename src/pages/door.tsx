@@ -38,9 +38,9 @@ function Door () {
     }
   };
 
-  const fechado = async () => {
-    setShowSuccessMessage(true)
-  }
+  // const fechado = async () => {
+  //   setShowSuccessMessage(true)
+  // }
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -129,7 +129,7 @@ function Door () {
             </div>
           </div>
           <div className="form sign-up">
-            <form onSubmit={fechado}>
+            <form onSubmit={handleRegister}>
               <label className="labela">
                 <span>Nome Completo</span>
                 <input type="text" name="name" required minLength={6} maxLength={60} />
@@ -154,7 +154,7 @@ function Door () {
                 CRIAR
               </button>
             </form>
-            {showSuccessMessage && <p>As vendas estão fechadas, então você não pode mais criar conta :( </p>}
+            {showSuccessMessage && <p>Um email de confirmacao foi enviado </p>}
           </div>
         </div>
       </div>
