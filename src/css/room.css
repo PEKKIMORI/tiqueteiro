@@ -1,239 +1,118 @@
-
-*,
-*:after,
-*:before {
-    box-sizing: border-box;
-}
-
-.pog {
-    font-family: "Inter", sans-serif;
-    background-color: #FFF;
-}
-
-.text-box {
-	font-family: "Inter", sans-serif;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pog1 {
-	font-family: "Inter", sans-serif;
-    font-size: 8vw;
-    font-weight: 900;
-    background-color: #ceb10c;
-    color: #ededed;
-    display: block;
-    padding: .5em;
-}
-
-.pog1:nth-child(2) {
-	font-family: "Inter", sans-serif;
-    position: absolute;
-    background-color: #ededed;
-    color: #ceb10c;
-    clip-path: inset(-1% -1% 50% -1%);
-}
-
-.pog2 {
-    font-size: 2vw;
-    font-weight: 900;
-    margin-top: 1em;
-    text-align: center;
-}
-
-.pogspan {
-    display: block;
-    transform: rotate(90deg);
-    margin-top: .25em;
-}
-
-.container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.wadawel {
-    width: 60%;
-    height: 50%;
-    text-align: center;
-    margin-top: 2rem;
-	margin-bottom: 3rem;
-    color: rgb(68, 68, 68);
-}
-
-.ragatanga {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.box {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  margin: 2rem;
-  margin-top: 650px;
-}
-
-.fonfon {
-    margin-top: 3rem;
-    text-align: center;
-}
-
-.flip-card {
-    background-color: transparent;
-    width: 190px;
-    height: 254px;
-    perspective: 1000px;
-    margin: 2rem;
-  }
-  
-  .title {
-    display: block;
-    margin: 0 auto;
-    width: auto;
-    height: auto;
-    font-size: 1.5em;
-    font-weight: 900;
-    text-align: center;
-    margin: 0;
-    color: rgb(53, 53, 53);
-  }
-  
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    width: 190px;
-    height: 254px;
-    border-radius: 30px;
-    box-shadow: 15px 15px 30px #bebebe,
-               -15px -15px 30px #dbdbdb;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  .flip-card-front {
-    color: rgb(78, 78, 78);
-  }
-  
-  .flip-card-back {
-    color: rgb(99, 99, 99);
-    transform: rotateY(180deg);
-  }
-  
-  @keyframes gradient {
-    0% {
-      background: radial-gradient(circle at center, rgba( 255, 125 , 125, 0 ) 0%, #fff 0%, #fff 100%);
-    }
-    25% {
-      background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.3 ) 24%, #fff 25%, #fff 100%);
-    }
-    50% {
-      background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.5 ) 49%, #fff 50%, #fff 100%);
-    }
-    75% {
-      background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.8 ) 74%, #fff 75%, #fff 100%);
-    }
-    100% {
-      color: #fff;
-      background: radial-gradient(circle at center, #f88 99%, #fff 100%, #fff 100%);
-    }
-  }
-  
-
-  .grongos {
-    margin-left: calc( 50vw - 175px );
-    margin-top: calc( 50vh - 30px );
-    width: 350px;
-    height: 60px;
-    border: none;
-    border-radius: 5px;
-    background: #fff;
-    font-weight: bold;
-    font-size: 1.1em;
-    color: #666;
-    outline: none;
-    display: block;
-    margin: 0 auto;
-    width: auto;
-    height: auto;
-    font-size: 1.5em;
-    font-weight: 900;
-    text-align: center;
-    margin: 0;
-    color: rgb(53, 53, 53);
-  }
-  .grongos:active {
-    /* set time duration to your needs */
-    animation: gradient 100ms;
-    background: #f88;
-    color: #fff;
-    box-shadow: none;
-  }
-
-
-.botchola {
-  background-color: #222;
-  border-radius: 4px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5;
+/* General Styles */
+* {
   margin: 0;
-  margin-bottom: 1rem;
-  max-width: none;
-  min-height: 44px;
-  min-width: 10px;
-  outline: none;
-  overflow: hidden;
-  padding: 9px 20px 8px;
-  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Room Container */
+.room-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
   text-align: center;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+}
+
+/* Room Header */
+.room-header h1 {
+  font-size: 2.5rem;
+  color: #d32f2f; /* Strong Red */
+  margin-bottom: 10px;
+}
+
+.room-header p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+  color: #5d4037; /* Dark Brown */
+}
+
+/* Tickets Grid */
+.tickets-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Ticket Card */
+.ticket-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 250px;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.ticket-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.ticket-card .price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d32f2f; /* Strong Red */
+  margin-bottom: 20px;
+}
+
+.ticket-card .buy-button {
   width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background: #1976d2; /* Strong Blue */
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.botchola:hover,
-.botchola:focus {
-  opacity: .75;
+.ticket-card .buy-button:hover {
+  background: #1565c0; /* Darker Blue */
 }
 
+/* Admin Buttons */
 .admin-buttons {
-  margin-bottom: 3rem;
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+.admin-button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  border: none;
+  background: #d32f2f; /* Strong Red */
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-button:hover {
+  background: #c62828; /* Darker Red */
+}
+
+/* No Tickets Message */
+.no-tickets {
+  font-size: 1.2rem;
+  color: #5d4037; /* Dark Brown */
+  margin-top: 50px;
 }

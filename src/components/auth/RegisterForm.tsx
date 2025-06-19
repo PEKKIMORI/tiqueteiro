@@ -37,24 +37,8 @@ function RegisterForm({ onRegisterSuccess, onRegisterError }: RegisterFormProps)
 
   return (
     <div className="sub-cont">
-      <div className="img">
-        <div className="img__text m--up">
-          <h2>Não tem uma conta?</h2>
-          <p>Cadastre-se e aproveite!</p>
-        </div>
-        <div className="img__text m--in">
-          <h2>Já tem uma conta?</h2>
-          <p>Se sim, faça o login!</p>
-        </div>
-        <div className="img__btn" onClick={() => {
-          document.querySelector('.cont')?.classList.toggle('s--signup');
-        }}>
-          <span className="m--up">Sign Up</span>
-          <span className="m--in">Sign In</span>
-        </div>
-      </div>
-      <div className="form sign-up">
-        <h2>Crie sua conta</h2>
+      <div className="form">
+        <h2>Criar conta</h2>
         <form onSubmit={handleRegister}>
           <label>
             <span>Nome</span>

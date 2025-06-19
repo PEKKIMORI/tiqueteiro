@@ -9,6 +9,7 @@ import Room from './pages/room.tsx';
 import Door from './pages/door.tsx';
 import TicketValidation from './pages/validar.tsx';
 import ConfirmEmail from './pages/confirmar.tsx';
+import Adm from './pages/adm.tsx';
 
 const router = createBrowserRouter([
   {
@@ -19,10 +20,10 @@ const router = createBrowserRouter([
     path: "/room",
     element: <Room />
   },
-  // {
-  //   path: "/adm",
-  //   element: <Adm />
-  // },
+  {
+    path: "/adm",
+    element: <Adm />
+  },
   {
     path: "/validar",
     element: <TicketValidation/>

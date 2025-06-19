@@ -29,8 +29,8 @@ function LoginForm({ onLoginSuccess, onLoginError }: LoginFormProps) {
   };
 
   return (
-    <div className="form sign-in">
-      <h2>Faça o login abaixo :)</h2>
+    <div className="form">
+      <h2>Entrar</h2>
       <form onSubmit={handleLogin}>
         <label>
           <span>Email</span>

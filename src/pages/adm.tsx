@@ -1,18 +1,18 @@
-// import Scanner from '../Scanner'
-// import '../css/adm.css'
+import Scanner from '../components/Scanner'
+import '../css/adm.css'
 
-// function Adm() {
+function Adm() {
 
-//     return (
-//         <>
-//         <div className="welcome">
-//             <h1>Scanner</h1>
-//         </div>
-//         <div className={"scanner"}>
-//             <Scanner/>
-//         </div>
-//         </>
-//     )
-// }
+    return (
+        <>
+        <div className="welcome">
+            <h1>Scanner</h1>
+        </div>
+        <div className={"scanner"}>
+            <Scanner/>
+        </div>
+        </>
+    )
+}
 
-// export default Adm
+export default Adm
