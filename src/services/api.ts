@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://tiqueteiro-etec.shop:3000';
+const baseURL = 'https://3918-177-139-169-54.ngrok-free.app';
 
 const api = axios.create({
   baseURL,

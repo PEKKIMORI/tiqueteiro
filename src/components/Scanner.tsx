@@ -1,6 +1,8 @@
-import { Html5QrcodeScanner } from "html5-qrcode";
 import { useEffect, useState } from "react";
-import authService from "./services/authService";
+import { Html5QrcodeScanner, QrcodeSuccessCallback } from "html5-qrcode";
+import authService from "../services/authService";
+import { AxiosError } from "axios";
+
 interface Ticket {
   id: number;
   sellerName: string;
@@ -21,29 +23,27 @@ function Scanner() {
   const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    const scanner = new Html5QrcodeScanner(
-      "reader",
-      {
-        qrbox: {
-          width: 700,
-          height: 700,
-        },
-        fps: 5,
+    const config = {
+      qrbox: {
+        width: 700,
+        height: 700,
       },
-      true
-    );
+      fps: 5,
+    };
 
-    scanner.render(success, error);
+    const scanner = new Html5QrcodeScanner("reader", config, false);
 
-    function success(result: string) {
+    const success: QrcodeSuccessCallback = (result) => {
       scanner.clear();
       setScanResult(result);
-      scanTicket(result); // Chama a função scanTicket passando o resultado da leitura do QR
-    }
+      scanTicket(result);
+    };
 
-    function error(err: any) {
+    function error(err: string) {
       console.warn(err);
     }
+
+    scanner.render(success, error);
   }, []);
 
   async function scanTicket(code: string) {
@@ -66,13 +66,17 @@ function Scanner() {
         setRm(response.data.rm);
         setErro(false);
         setError(undefined);
-      } else if ( response.status === 400) {
+      } else if (response.status === 400) {
         console.log("Ocorreu um erro:", response.data.message);
         setErro(true);
         setError(response.data.message);
       }
-    } catch (error: any) {
-      console.log("Ocorreu um erro:", error.message);
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.log("Ocorreu um erro:", error.response?.data?.message);
+      } else {
+        console.log("Ocorreu um erro inesperado:", error);
+      }
     }
   }
 
@@ -88,7 +92,9 @@ function Scanner() {
               <p>RM do aluno: {rm}</p>
             </div>
           ) : (
-            <div><p>{error}</p></div>
+            <div>
+              <p>{error}</p>
+            </div>
           )}
           {ticket && erro ? (
             <div>

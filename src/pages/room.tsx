@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useCopyToClipboard from '../Copy.tsx';
 import authService from '../services/authService';
-
 import '../css/room.css'
 
 export default function Room() {
@@ -31,9 +29,24 @@ export default function Room() {
     confirmedEmail?: boolean
   }
 
-  const [, copy] = useCopyToClipboard();
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [user, setUser] = useState<User>();
+
+  const handlePayment = async (ticketCode: string) => {
+    if (user) {
+      const params = {
+        payerName: user.name,
+        payerEmail: user.email,
+        payerCPF: "12345678900", // Mock CPF for now, as it's not available in the user object.
+        ticketCode: ticketCode,
+      };
+      const res = await authService.createPayment(params);
+      if (res && res.data && res.data.url) {
+        window.location.href = res.data.url;
+      }
+    }
+  };
+
   useEffect(() => {
     const fetchTickets = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
@@ -42,28 +55,30 @@ export default function Room() {
         return;
       }
       const response = await authService.getTickets(token);
-
+      console.log(response.data);
       if (response.status === 200) {
-        setTickets(response.data.tickets);
+        setTickets(response.data.tickets || []);
       }
     };
 
     const findUser = async () => {
       const token = sessionStorage.getItem('onebitflix-token');
-      const res = await authService.findUser(token!)
-      const user = res.data
-      // if(user.role !== "admin") {
-      //   navigate('/')
-      // }
-      if (res.status === 200) {
-        setUser(user)
+      if(token) {
+        const res = await authService.findUser(token)
+        const user = res.data
+        // if(user.role !== "admin") {
+        //   navigate('/')
+        // }
+        if (res.status === 200) {
+          setUser(user)
+        }
+        console.log(res)
       }
-      console.log(res)
     }
 
     findUser()
     fetchTickets();
-  }, []); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
+  }, [navigate]); // O array de dependências está vazio para executar o useEffect apenas uma vez, após a montagem do componente.
   return (
     <>
     <div className="ragatanga">
@@ -79,15 +94,15 @@ export default function Room() {
 
       {tickets.length > 0 ? (
           tickets.map((ticket) => (
-            <div className="flip-card" key={ticket.id}>
+            <div className="flip-card" key={ticket.id} onClick={() => handlePayment(ticket.code)}>
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <p className="title">{ticket.price}</p>
                   <img src="https://cdn.discordapp.com/attachments/885280158704074884/1111762811354366003/Movie-Ticket-PNG.png" alt="Ticket" />
                 </div>
                 <div className="flip-card-back">
-                  <h1>Copiar Código:</h1>
-                  <button className="grongos" onClick={() => copy(`${ticket.code}`)}>Toque O(∩_∩)O</button>
+                  <h1>Comprar Ingresso</h1>
+                  <p>Clique em qualquer lugar do card para ser redirecionado ao pagamento.</p>
                 </div>
               </div>
             </div>

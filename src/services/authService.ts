@@ -31,6 +31,13 @@ interface validateParams {
   payerName: string
 }
 
+export interface CreatePaymentParams {
+  payerName: string,
+  payerCPF: string,
+  payerEmail: string,
+  ticketCode: string
+  }
+
 const authService = {
   register: async (params: RegisterParams) => {
     const res = await api.post("/auth/register", params).catch((error) => {
@@ -69,6 +76,15 @@ const authService = {
     console.log(res)
     return res
   },
+  createPayment: async (params: CreatePaymentParams) => {
+    try {
+      const res = await api.post('/create-payment', params);
+      return res;
+    } catch (error: any) {
+      console.log(error);
+      return error.response;
+    }
+  },
   payment: async (ticket: string) => {
     const res = await api.post(`/payment/${ticket}`).catch((error) => {
       if (error.response.status === 500 || error.response.status === 501) {
@@ -81,7 +97,8 @@ const authService = {
   getTickets:async (token: string) => {
     const res = await api.get("/home", {
       headers: {
-          Authorization: `Bearer ${ token }`
+          Authorization: `Bearer ${ token }`,
+          'ngrok-skip-browser-warning': 'true'
       }
     }).catch((error) => {
         return error.response;
