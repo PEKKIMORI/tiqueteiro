@@ -32,18 +32,26 @@ export default function Room() {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [user, setUser] = useState<User>();
 
-  const handlePayment = async (ticketCode: string) => {
-    if (user) {
+   const handlePayment = async (ticketCode: string) => {
+    const token = sessionStorage.getItem('onebitflix-token');
+    console.log(user.email)
+    console.log(user.email)
+    if (user && token) {
       const params = {
         payerName: user.name,
         payerEmail: user.email,
-        payerCPF: "12345678900", // Mock CPF for now, as it's not available in the user object.
+        payerCPF: "12345678900",
         ticketCode: ticketCode,
       };
-      const res = await authService.createPayment(params);
+
+      const res = await authService.createPayment(params, token);
+      
+      console.log(res)
       if (res && res.data && res.data.url) {
         window.location.href = res.data.url;
       }
+    } else {
+      console.error("Usuário não logado ou token não encontrado. Não é possível criar pagamento.");
     }
   };
 

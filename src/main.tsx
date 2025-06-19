@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 import Room from './pages/room.tsx';
-import Adm from './pages/adm.tsx';
+// import Adm from './pages/adm.tsx';
 import Door from './pages/door.tsx';
 import TicketValidation from './pages/validar.tsx';
 import ConfirmEmail from './pages/confirmar.tsx';
@@ -19,10 +19,10 @@ const router = createBrowserRouter([
     path: "/room",
     element: <Room />
   },
-  {
-    path: "/adm",
-    element: <Adm />
-  },
+  // {
+  //   path: "/adm",
+  //   element: <Adm />
+  // },
   {
     path: "/validar",
     element: <TicketValidation/>

@@ -76,9 +76,13 @@ const authService = {
     console.log(res)
     return res
   },
-  createPayment: async (params: CreatePaymentParams) => {
+  createPayment: async (params: CreatePaymentParams, token: string) => {
     try {
-      const res = await api.post('/create-payment', params);
+      const res = await api.post('/create-payment', params, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       return res;
     } catch (error: any) {
       console.log(error);
