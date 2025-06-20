@@ -1,9 +1,11 @@
 /* Scanner.css */
 
 .scan-result {
-  background-color: #f0f0f0;
+  background-color: #FFFDE7;
   padding: 20px;
   margin-top: 20px;
+  border: 1px solid #FFD700;
+  border-radius: 15px;
 }
 
 .scan-result p {

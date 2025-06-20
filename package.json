@@ -14,13 +14,13 @@
     "@types/qrcode": "^1.5.0",
     "axios": "^1.4.0",
     "canvas-confetti": "^1.9.3",
-    "html5-qrcode": "^2.3.8",
     "jspdf": "^2.5.1",
     "mercadopago": "^1.5.16",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",
     "react-canvas-confetti": "^2.0.7",
     "react-dom": "^18.2.0",
+    "react-qr-scanner": "^1.0.0-alpha.11",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {

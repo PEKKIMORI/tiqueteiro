@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Html5QrcodeScanner, QrcodeSuccessCallback } from "html5-qrcode";
+import { useState } from "react";
+import QrReader from "react-qr-scanner";
 import authService from "../services/authService";
 import { AxiosError } from "axios";
 
@@ -22,29 +22,16 @@ function Scanner() {
   const [erro, setErro] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>(undefined);
 
-  useEffect(() => {
-    const config = {
-      qrbox: {
-        width: 700,
-        height: 700,
-      },
-      fps: 5,
-    };
-
-    const scanner = new Html5QrcodeScanner("reader", config, false);
-
-    const success: QrcodeSuccessCallback = (result) => {
-      scanner.clear();
-      setScanResult(result);
-      scanTicket(result);
-    };
-
-    function error(err: string) {
-      console.warn(err);
+  const handleScan = (data: any) => {
+    if (data) {
+      setScanResult(data.text);
+      scanTicket(data.text);
     }
+  };
 
-    scanner.render(success, error);
-  }, []);
+  const handleError = (err: any) => {
+    console.error(err);
+  };
 
   async function scanTicket(code: string) {
     try {
@@ -103,7 +90,12 @@ function Scanner() {
           ) : null}
         </div>
       ) : (
-        <div id="reader"></div>
+        <QrReader
+          delay={300}
+          onError={handleError}
+          onScan={handleScan}
+          style={{ width: "100%" }}
+        />
       )}
     </div>
   );
