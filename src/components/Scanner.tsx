@@ -2,6 +2,7 @@ import { useState } from "react";
 import QrReader from "react-qr-scanner";
 import authService from "../services/authService";
 import { AxiosError } from "axios";
+import "../css/scanner.css";
 
 interface Ticket {
   id: number;
@@ -22,23 +23,15 @@ function Scanner() {
   const [erro, setErro] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>(undefined);
 
-  const handleScan = (data: any) => {
-    if (data) {
-      setScanResult(data.text);
-      scanTicket(data.text);
-    }
-  };
+  const handleScan = async (data: { text: string } | null) => {
+    if (!data) return;
 
-  const handleError = (err: any) => {
-    console.error(err);
-  };
+    setScanResult(data.text);
 
-  async function scanTicket(code: string) {
     try {
       const token = sessionStorage.getItem("onebitflix-token");
       if (!token) {
-        // Tratar caso não exista token
-        return;
+        throw new Error("Usuário não autenticado.");
       }
 
       const config = {
@@ -47,52 +40,67 @@ function Scanner() {
         },
       };
 
-      const response = await authService.scan(code, config);
+      const response = await authService.scan(data.text, config);
+
       if (response.status === 201) {
         setTicket(response.data.ticket);
         setRm(response.data.rm);
         setErro(false);
         setError(undefined);
-      } else if (response.status === 400) {
-        console.log("Ocorreu um erro:", response.data.message);
-        setErro(true);
-        setError(response.data.message);
+      } else {
+        throw new Error(response.data.message || "Erro ao validar ticket.");
       }
     } catch (error) {
+      let errorMessage = "Ocorreu um erro inesperado.";
       if (error instanceof AxiosError) {
-        console.log("Ocorreu um erro:", error.response?.data?.message);
-      } else {
-        console.log("Ocorreu um erro inesperado:", error);
+        errorMessage =
+          error.response?.data?.message || "Ocorreu um erro na requisição.";
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
       }
+
+      setErro(true);
+      setError(errorMessage);
+      setTicket(null);
+      setRm(null);
     }
-  }
+  };
+
+  const resetScan = () => {
+    setScanResult(null);
+    setTicket(null);
+    setRm(null);
+    setErro(false);
+    setError(undefined);
+  };
 
   return (
     <div>
       {scanResult ? (
-        <div>
-          {ticket && !erro ? (
+        <div className="scan-result">
+          {erro ? (
             <div>
-              <p>Ticket aprovado!!</p>
-              <p>Nome do convidado: {ticket.buyerName}</p>
-              <p>Nome do aluno: {ticket.sellerName}</p>
-              <p>RM do aluno: {rm}</p>
+              <p style={{ color: "black" }}>{error}</p>
             </div>
           ) : (
-            <div>
-              <p>{error}</p>
-            </div>
+            ticket && (
+              <div>
+                <p style={{ color: "black" }}>Ticket aprovado!!</p>
+                <p style={{ color: "black" }}>
+                  Nome do convidado: {ticket.buyerName}
+                </p>
+                <p style={{ color: "black" }}>Nome do aluno: {ticket.sellerName}</p>
+              </div>
+            )
           )}
-          {ticket && erro ? (
-            <div>
-              <p>{error}</p>
-            </div>
-          ) : null}
+          <button onClick={resetScan} className="scan-again-button">
+            Escanear Novamente
+          </button>
         </div>
       ) : (
         <QrReader
           delay={300}
-          onError={handleError}
+          onError={console.error}
           onScan={handleScan}
           style={{ width: "100%" }}
         />

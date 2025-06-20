@@ -6,10 +6,27 @@
   margin-top: 20px;
   border: 1px solid #FFD700;
   border-radius: 15px;
+  text-align: center;
 }
 
 .scan-result p {
   margin: 10px 0;
+}
+
+.scan-again-button {
+  background-color: #FFD700;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.scan-again-button:hover {
+  background-color: #FFC700;
 }
 
 #reader {

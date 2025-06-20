@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import toast from 'react-hot-toast';
 import authService from '../../services/authService';
 
 interface RegisterFormProps {
@@ -34,6 +35,7 @@ function RegisterForm({ onRegisterSuccess, onRegisterError }: RegisterFormProps)
       const res = await authService.register(params);
 
       if (res.status === 201) {
+        toast.success('Email de confirmação enviado para seu email');
         onRegisterSuccess();
       } else {
         onRegisterError();

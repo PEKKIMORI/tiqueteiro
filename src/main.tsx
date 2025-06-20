@@ -11,6 +11,7 @@ import Door from './pages/door.tsx';
 import TicketValidation from './pages/validar.tsx';
 import ConfirmEmail from './pages/confirmar.tsx';
 import Adm from './pages/adm.tsx';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -35,8 +36,9 @@ const router = createBrowserRouter([
   }
 ]);
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <Toaster />
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
